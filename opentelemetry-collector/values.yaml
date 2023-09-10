@@ -145,7 +145,7 @@ config:
         - batch
         receivers:
         - otlp
-        - jaeger
+        # - jaeger
         - zipkin
 
 image:
