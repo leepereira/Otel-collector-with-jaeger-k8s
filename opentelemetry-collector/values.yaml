@@ -72,14 +72,14 @@ configMap:
 config:
   exporters:
     logging: {}
-    # jaeger:
-    #   endpoint: jaeger-jaeger-all-in-one:14250
-    #   tls:
-    #     insecure: true
-    otlp:
-      endpoint: https://otlp.nr-data.net:4317
-      headers:
-        api-key: bc76ab428745e5cbcffa07cb5fab1cbaFFFFNRAL    
+    jaeger:
+      endpoint: jaeger-jaeger-all-in-one:14250
+      tls:
+        insecure: true
+    # otlp:
+    #   endpoint: https://otlp.nr-data.net:4317
+    #   headers:
+    #     api-key: bc76ab428745e5cbcffa07cb5fab1cbaFFFFNRAL    
   extensions:
     # The health_check extension is mandatory for this chart.
     # Without the health_check extension the collector will fail the readiness and liveliness probes.
@@ -143,8 +143,8 @@ config:
       traces:
         exporters:
         - logging
-        # - jaeger
-        - otlp
+        - jaeger
+        # - otlp
         processors:
         - memory_limiter
         - batch
